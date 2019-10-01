@@ -127,8 +127,7 @@ public class WifiCollectionService extends Service {
                 max_wakeup_jitter = Math.max(max_wakeup_jitter, wakeup_jitter);
             }
         }
-
-        if (DexCollectionType.hasWifi()) {
+        if (DexCollectionType.hasWifi() || true) {
             runWixelReader();
             // For simplicity done here, would better happen once we know if we have a packet or not...
             setFailoverTimer();
@@ -159,7 +158,7 @@ public class WifiCollectionService extends Service {
     }
 
     public void setFailoverTimer() {
-        if (DexCollectionType.hasWifi()) {
+        if (DexCollectionType.hasWifi() || true) {
             long retry_in;
             if(DexCollectionType.hasLibre()) {
                 retry_in = LibreWifiReader.timeForNextRead();

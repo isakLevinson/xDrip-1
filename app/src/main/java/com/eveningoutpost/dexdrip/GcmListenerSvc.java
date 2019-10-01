@@ -452,6 +452,8 @@ public class GcmListenerSvc extends JamListenerSvc {
                         }
                     }
                 } else if (action.equals("bgs")) {
+                    Log.i(TAG, "Ignoring BG (bgs) packet(s)");
+                    /*
                     Log.i(TAG, "Received BG packet(s)");
                     if (Home.get_follower() || WholeHouse.isEnabled()) {
                         final String bgs[] = payload.split("\\^");
@@ -464,8 +466,11 @@ public class GcmListenerSvc extends JamListenerSvc {
                     } else {
                         Log.e(TAG, "Received remote BG packet but we are not set as a follower");
                     }
+                    */
                     // Home.staticRefreshBGCharts();
                 } else if (action.equals("bfb")) {
+                    Log.i(TAG, "Ignoring BG (bfb) packet(s)");
+                    /*
                     final String bfb[] = payload.split("\\^");
                     if (Pref.getString("dex_collection_method", "").equals("Follower")) {
                         Log.i(TAG, "Processing backfill location packet as we are a follower");
@@ -485,6 +490,7 @@ public class GcmListenerSvc extends JamListenerSvc {
                     } else {
                         Log.i(TAG, "Ignoring backfill location packet as we are not follower");
                     }
+                     */
                 } else if (action.equals("bfr")) {
                     if (Pref.getBooleanDefaultFalse("plus_follow_master")) {
                         Log.i(TAG, "Processing backfill location request as we are master");
@@ -514,17 +520,23 @@ public class GcmListenerSvc extends JamListenerSvc {
                         Mimeograph.putXferFromJson(payload);
                     }
                 } else if (action.equals("btmm")) {
+                    Log.i(TAG, "Ignoring BG (btmm) packet(s)");
+                    /*
                     if (Home.get_master_or_follower() && Home.follower_or_accept_follower()) {
                         BloodTest.processFromMultiMessage(bpayload);
                     } else {
                         Log.i(TAG, "Receive multi blood test but we are neither master or follower");
                     }
+                     */
                 } else if (action.equals("bgmm")) {
+                    Log.i(TAG, "Ignoring BG (bgmm) packet(s)");
+                    /*
                     if (Home.get_follower()) {
                         BgReading.processFromMultiMessage(bpayload);
                     } else {
                         Log.i(TAG, "Receive multi glucose readings but we are not a follower");
                     }
+                     */
                 } else if (action.equals("esup")) {
                     if (Home.get_master_or_follower()) {
                         final String[] segments = payload.split("\\^");

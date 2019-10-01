@@ -237,6 +237,8 @@ public class CollectionServiceStarter {
         xdrip.checkAppContext(context);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.mContext);
 
+        Log.e("xxxx", "Starting wifi wixel collector first");
+        startWifWixelThread();
         if (isBTWixelOrLimiTTer(collection_method) || isDexbridgeWixel(collection_method)) {
             Log.d("DexDrip", "Starting bt wixel collector");
             stopWifWixelThread();
